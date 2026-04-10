@@ -2,13 +2,12 @@ FROM node:18 AS build
 
 WORKDIR /app
 
-# ✅ Fix SSL issue
 RUN apt-get update && apt-get install -y ca-certificates
 
 COPY package*.json ./
 
-# ⚠️ TEMP FIX (disable strict SSL)
 RUN npm config set strict-ssl false
+RUN npm config set registry https://registry.npmmirror.com
 
 RUN npm install
 
