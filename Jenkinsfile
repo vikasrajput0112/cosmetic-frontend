@@ -15,13 +15,13 @@ pipeline {
             }
         }
 
-        stage('Tag') {
+        stage('Tag Image') {
             steps {
                 sh 'docker tag $IMAGE_NAME $DOCKERHUB_USER/$IMAGE_NAME:latest'
             }
         }
 
-        stage('Push') {
+        stage('Push Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
