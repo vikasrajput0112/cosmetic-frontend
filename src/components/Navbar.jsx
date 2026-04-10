@@ -7,8 +7,7 @@ export default function Navbar() {
         <Link to="/" className="navbar-brand">Cosmetic Store</Link>
 
         <div>
-          <Link to="/products" className="btn btn-outline-light me-2">Products</Link>
-          <Link to="/cart" className="btn btn-warning">Cart</Link>
+          <Link to="/products" className="btn btn-outline-light">Products</Link>
         </div>
       </div>
     </nav>
